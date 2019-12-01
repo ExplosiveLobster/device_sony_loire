@@ -24,6 +24,19 @@ PRODUCT_PLATFORM_SOD := true
 
 TARGET_BOARD_PLATFORM := msm8952
 
+# Kernel Configuration
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_SOURCE := kernel/sony/msm-4.9
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-androidkernel-
+KERNEL_TO_BUILD_ROOT_OFFSET := ../../../
+
+# Enable llvm support for kernel
+KERNEL_LLVM_SUPPORT := true
+
 SONY_ROOT := $(PLATFORM_COMMON_PATH)/rootdir
 
 # Wi-Fi definitions for Broadcom solution but using brcmfmac instead of bcmdhd kernel driver
