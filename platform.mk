@@ -21,6 +21,14 @@ SOMC_PLATFORM := loire
 SOMC_KERNEL_VERSION := 4.9
 KERNEL_PATH := kernel/sony/msm-$(SOMC_KERNEL_VERSION)
 
+# Kernel Configuration
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_KERNEL_VERSION := 4.9
+TARGET_KERNEL_SOURCE := kernel/sony/msm-4.9
+KERNEL_TO_BUILD_ROOT_OFFSET := ../../../
+KERNEL_DEFCONFIG := loire_$(PRODUCT_DEVICE)_defconfig
+
 $(call inherit-product, device/sony/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
