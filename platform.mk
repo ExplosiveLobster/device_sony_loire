@@ -18,7 +18,7 @@ PLATFORM_COMMON_PATH := device/sony/loire
 TARGET_LEGACY_KEYMASTER := true
 
 SOMC_PLATFORM := loire
-SOMC_KERNEL_VERSION := 4.9
+SOMC_KERNEL_VERSION := 4.14
 KERNEL_PATH := kernel/sony/msm-$(SOMC_KERNEL_VERSION)
 
 # Kernel Configuration
@@ -26,8 +26,8 @@ TARGET_COMPILE_WITH_MSM_KERNEL := true
 TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_VERSION := 4.9
-TARGET_KERNEL_SOURCE := kernel/sony/msm-4.9
+TARGET_KERNEL_VERSION := 4.14
+TARGET_KERNEL_SOURCE := kernel/sony/msm-4.14
 KERNEL_TO_BUILD_ROOT_OFFSET := ../../../
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-androidkernel-
 
@@ -198,6 +198,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
 
+
+# Kernel Modules Config
+PRODUCT_COPY_FILES += \
+    $(SONY_ROOT)/vendor/etc/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
+
 # Audio DLKM
 PRODUCT_PACKAGES += \
     audio_apr.ko \
@@ -222,9 +227,5 @@ PRODUCT_PACKAGES += \
     audio_digital_cdc.ko \
     audio_analog_cdc.ko \
     audio_native.ko \
-    audio_machine_sdm450.ko \
-    audio_machine_ext_sdm450.ko
-
-# Kernel Modules Config
-PRODUCT_COPY_FILES += \
-    $(SONY_ROOT)/vendor/etc/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
+    audio_wcd_cpe.ko \
+    audio_machine_msm8952.ko

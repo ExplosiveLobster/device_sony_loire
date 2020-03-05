@@ -89,11 +89,13 @@ BOARD_VENDOR_KERNEL_MODULES := \
     $(KERNEL_MODULES_OUT)/audio_q6_notifier.ko \
     $(KERNEL_MODULES_OUT)/audio_adsp_loader.ko \
     $(KERNEL_MODULES_OUT)/audio_q6.ko \
+    $(KERNEL_MODULES_OUT)/audio_q6_pdr.ko \
     $(KERNEL_MODULES_OUT)/audio_usf.ko \
     $(KERNEL_MODULES_OUT)/audio_pinctrl_wcd.ko \
     $(KERNEL_MODULES_OUT)/audio_swr.ko \
     $(KERNEL_MODULES_OUT)/audio_wcd_core.ko \
     $(KERNEL_MODULES_OUT)/audio_swr_ctrl.ko \
+    $(KERNEL_MODULES_OUT)/audio_wcd_cpe.ko \
     $(KERNEL_MODULES_OUT)/audio_wsa881x.ko \
     $(KERNEL_MODULES_OUT)/audio_wsa881x_analog.ko \
     $(KERNEL_MODULES_OUT)/audio_platform.ko \
@@ -103,11 +105,7 @@ BOARD_VENDOR_KERNEL_MODULES := \
     $(KERNEL_MODULES_OUT)/audio_wcd9xxx.ko \
     $(KERNEL_MODULES_OUT)/audio_mbhc.ko \
     $(KERNEL_MODULES_OUT)/audio_wcd9335.ko \
-    $(KERNEL_MODULES_OUT)/audio_wcd_cpe.ko \
-    $(KERNEL_MODULES_OUT)/audio_digital_cdc.ko \
-    $(KERNEL_MODULES_OUT)/audio_analog_cdc.ko \
     $(KERNEL_MODULES_OUT)/audio_native.ko \
-    $(KERNEL_MODULES_OUT)/audio_machine_sdm450.ko \
-    $(KERNEL_MODULES_OUT)/audio_machine_ext_sdm450.ko
+    $(KERNEL_MODULES_OUT)/audio_machine_msm8952.ko
 
 include device/sony/common/CommonConfig.mk
