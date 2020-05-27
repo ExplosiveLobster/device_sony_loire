@@ -21,6 +21,19 @@ SOMC_PLATFORM := loire
 SOMC_KERNEL_VERSION := 4.9
 KERNEL_PATH := kernel/sony/msm-$(SOMC_KERNEL_VERSION)
 
+# Kernel Configuration
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_VERSION := 4.14
+TARGET_KERNEL_SOURCE := kernel/sony/msm-4.14
+KERNEL_TO_BUILD_ROOT_OFFSET := ../../../
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(shell pwd)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-androidkernel-
+
+# Enable llvm support for kernel
+KERNEL_LLVM_SUPPORT := true
+
 $(call inherit-product, device/sony/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
@@ -113,6 +126,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.msm8952
 
+# Sensors
+PRODUCT_PACKAGES += \
+    sensors_settings \
+    hals.conf
+
 # CAMERA
 PRODUCT_PACKAGES += \
     camera.msm8952
@@ -195,3 +213,33 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # setup dm-verity configs.
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
+
+# Audio DLKM
+PRODUCT_PACKAGES += \
+    audio_apr.ko \
+    audio_q6_notifier.ko \
+    audio_adsp_loader.ko \
+    audio_q6.ko \
+    audio_q6_pdr.ko \
+    audio_usf.ko \
+    audio_pinctrl_wcd.ko \
+    audio_swr.ko \
+    audio_wcd_core.ko \
+    audio_swr_ctrl.ko \
+    audio_wsa881x.ko \
+    audio_platform.ko \
+    audio_cpe_lsm.ko \
+    audio_hdmi.ko \
+    audio_stub.ko \
+    audio_wcd9xxx.ko \
+    audio_mbhc.ko \
+    audio_wcd9335.ko \
+    audio_wcd_cpe.ko \
+    audio_native.ko \
+    audio_wcd_cpe.ko \
+    audio_machine_msm8952.ko \
+    audio_machine_ext_msm8952.ko
+
+# Kernel Modules Config
+PRODUCT_COPY_FILES += \
+    $(SONY_ROOT)/vendor/etc/init.insmod.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/init.insmod.cfg
