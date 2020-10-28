@@ -79,7 +79,7 @@ TARGET_USES_GRALLOC1 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Platform witout a vendor partition
-TARGET_COPY_OUT_VENDOR := system/vendor
+TARGET_COPY_OUT_VENDOR := vendor
 
 # DLKM
 KERNEL_MODULES_INSTALL := dlkm

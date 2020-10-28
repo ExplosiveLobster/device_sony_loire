@@ -54,7 +54,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(SONY_ROOT)/vendor/etc/audio_tuning_mixer_tasha.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tasha.txt \
     $(SONY_ROOT)/vendor/etc/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-    $(SONY_ROOT)/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
+    $(SONY_ROOT)/vendor/etc/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(SONY_ROOT)/vendor/etc/fstab.loire:$(TARGET_COPY_OUT_RAMDISK)/fstab.suzu
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -185,6 +186,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.skip_extension_intf=1
 
+# Skip loading libsdm-color.so
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.display.skip_color_intf=1
+
 # USB controller setup
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.usb.controller=msm_hsusb \
@@ -195,8 +200,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.wifi.addr_path=/sys/devices/platform/soc/soc:bcmdhd_wlan/macaddr
 
 # setup dm-verity configs.
-PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
-$(call inherit-product, build/target/product/verity.mk)
+#PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
+#$(call inherit-product, build/target/product/verity.mk)
 
 # Audio DLKM
 PRODUCT_PACKAGES += \
