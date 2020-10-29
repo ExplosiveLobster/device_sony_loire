@@ -252,6 +252,10 @@ $(call inherit-product, device/sony/common/common.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, build/target/product/verity.mk)
 
+# HAL3
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.HAL3.enabled=1
+
 # Audio DLKM
 PRODUCT_PACKAGES += \
     audio_apr.ko \
