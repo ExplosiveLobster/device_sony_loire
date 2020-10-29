@@ -203,6 +203,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
 #$(call inherit-product, build/target/product/verity.mk)
 
+# HAL3
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.HAL3.enabled=1
+
 # Audio DLKM
 PRODUCT_PACKAGES += \
     audio_apr.ko \
