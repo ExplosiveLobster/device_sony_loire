@@ -232,9 +232,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 
-# Skip loading libsdmextension.so in display hal
+# Skip loading libsdmextension.so and libsdm-color.so in display hal
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.display.skip_extension_intf=1
+    vendor.display.skip_extension_intf=1 \
+    vendor.display.skip_color_intf=1
 
 # USB controller setup
 PRODUCT_PROPERTY_OVERRIDES += \
