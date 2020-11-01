@@ -29,7 +29,7 @@ BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET     := 0x02000000
 
-BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci
+BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci androidboot.boot_devices=soc/7824900.sdhci
 
 # Serial console
 #BOARD_KERNEL_CMDLINE += earlycon=msm_serial_dm,0x7af0000 restore_msm_uart=0x01014000

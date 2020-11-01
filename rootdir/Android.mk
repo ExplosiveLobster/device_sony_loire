@@ -10,6 +10,15 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/etc
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := fstab.ramdisk.$(TARGET_DEVICE)
+LOCAL_SRC_FILES := vendor/etc/fstab.loire
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_STEM := fstab.$(TARGET_DEVICE)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/$(TARGET_COPY_OUT_RAMDISK)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
 LOCAL_MODULE := init.loire
 LOCAL_SRC_FILES := vendor/etc/init/init.loire.rc
 LOCAL_MODULE_TAGS := optional
