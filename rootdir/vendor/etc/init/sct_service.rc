@@ -1,0 +1,4 @@
+# Secure Config Transfer service
+service vendor.sct_service /vendor/bin/sct_service
+    class core
+    user root

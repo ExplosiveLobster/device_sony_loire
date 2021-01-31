@@ -1,0 +1,5 @@
+# MLog
+service vendor.mlog_qmi_service /vendor/bin/mlog_qmi_service
+    class core
+    user root
+    shutdown critical

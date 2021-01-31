@@ -1,0 +1,9 @@
+#on post-fs-data
+#    mkdir /data/vendor/tombstones/modem 0771 system system
+#    mkdir /data/vendor/tombstones/lpass 0771 system system
+#    mkdir /data/vendor/tombstones/rfs 0771 system system
+
+#service vendor.tftp_server /vendor/bin/tftp_server
+#   class core
+#   user root
+#   group root system

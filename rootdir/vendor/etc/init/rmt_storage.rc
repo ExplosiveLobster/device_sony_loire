@@ -1,0 +1,6 @@
+# Remote Storage
+service vendor.rmt_storage /vendor/bin/rmt_storage
+    class core
+    user root
+    ioprio rt 0
+    shutdown critical

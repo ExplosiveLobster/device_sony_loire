@@ -1,0 +1,6 @@
+# Trim Area QMI service
+service vendor.ta_qmi_service /vendor/bin/ta_qmi_service
+    class core
+    user root
+    group root system wakelock
+    shutdown critical
